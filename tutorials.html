@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Coding Tutorials - Learn to Code Like You Mean It</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .tutorial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #338eda;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-left-color: #ff6b6b;
+        }
+
+        .tutorial-card h3 {
+            color: #338eda;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tutorial-difficulty {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .difficulty-beginner {
+            background: #a8e6cf;
+            color: #056d3e;
+        }
+
+        .difficulty-intermediate {
+            background: #ffd3b6;
+            color: #8b3a00;
+        }
+
+        .difficulty-advanced {
+            background: #ffaaa5;
+            color: #6e0000;
+        }
+
+        .tutorial-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 1.5rem;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box strong {
+            color: #2e7d32;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box strong {
+            color: #e65100;
+        }
+
+        .checklist {
+            background: linear-gradient(135deg, #eaf4ff 0%, #d6ebff 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .checklist li {
+            margin: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #338eda;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">✨ VIBE CODE ✨</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="philosophy.html">Philosophy</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                🎓 Learn to VIBE 🎓<br>
+                <span class="subtitle">Practical Tutorials for Better Coding</span>
+            </h1>
+            <p class="hero-description">
+                Step-by-step guides to transform your development practice.
+            </p>
+        </div>
+        <img src="assets/images/team-jam.svg" class="hero-art image-enter" alt="Team jamming on coding tutorials">
+    </section>
+
+    <!-- Tutorial Overview -->
+    <section class="tutorial-grid" style="max-width: 1200px; margin: 3rem auto; padding: 0 2rem;">
+        <div class="tutorial-card" onclick="scrollToSection('#setup')">
+            <span class="tutorial-difficulty difficulty-beginner">BEGINNER</span>
+            <h3>🎯 Setup Your Vibe</h3>
+            <p>Create the perfect environment for focused, creative coding.</p>
+            <small>~10 min read</small>
+        </div>
+
+        <div class="tutorial-card" onclick="scrollToSection('#rhythm')">
+            <span class="tutorial-difficulty difficulty-beginner">BEGINNER</span>
+            <h3>🎵 Find Your Rhythm</h3>
+            <p>Discover when and how you code best.</p>
+            <small>~15 min read</small>
+        </div>
+
+        <div class="tutorial-card" onclick="scrollToSection('#flow')">
+            <span class="tutorial-difficulty difficulty-intermediate">INTERMEDIATE</span>
+            <h3>⚡ Enter Flow State</h3>
+            <p>Master the art of deep work and no interruptions.</p>
+            <small>~20 min read</small>
+        </div>
+
+        <div class="tutorial-card" onclick="scrollToSection('#debug')">
+            <span class="tutorial-difficulty difficulty-intermediate">INTERMEDIATE</span>
+            <h3>🔍 Debug with Joy</h3>
+            <p>Find and fix bugs while maintaining your vibe.</p>
+            <small>~20 min read</small>
+        </div>
+
+        <div class="tutorial-card" onclick="scrollToSection('#ship')">
+            <span class="tutorial-difficulty difficulty-advanced">ADVANCED</span>
+            <h3>🚀 Ship with Confidence</h3>
+            <p>Deploy code you're proud of, stress-free.</p>
+            <small>~25 min read</small>
+        </div>
+
+        <div class="tutorial-card" onclick="scrollToSection('#team')">
+            <span class="tutorial-difficulty difficulty-advanced">ADVANCED</span>
+            <h3>👥 Build Vibe Teams</h3>
+            <p>Engineer a culture of joy and productivity.</p>
+            <small>~25 min read</small>
+        </div>
+    </section>
+
+    <!-- Tutorial 1: Setup -->
+    <section class="tutorial-section" id="setup">
+        <h2>🎯 Tutorial 1: Setup Your Vibe</h2>
+        <p>Before you can vibe, you need to create the perfect environment.</p>
+
+        <h3>The Physical Space 🏠</h3>
+        <p>Your workspace matters more than you think. Here's how to set it up:</p>
+
+        <div class="checklist">
+            <ul>
+                <li>Good lighting (natural light = chef's kiss)</li>
+                <li>Comfortable chair (your back will thank you)</li>
+                <li>Minimal distractions (put your phone in another room)</li>
+                <li>Decent speakers (good music = good vibes)</li>
+                <li>Plants (optional but recommended for mood)</li>
+            </ul>
+        </div>
+
+        <h3>The Digital Setup 💻</h3>
+        <p>Your editor and tools shape your experience:</p>
+
+        <div class="code-block">
+// VS Code Extensions for Vibing:
+- Peacock (color-code your projects)
+- One Dark Pro (because dark mode > light mode)
+- Prettier (let it format so you don't have to)
+- Thunder Client or Insomnia (for API vibing)
+- Music Time or Spotify (code to the beat)
+        </div>
+
+        <div class="tip-box">
+            <strong>💡 Pro Tip:</strong> Keep your editor clean. Minimize clutter. Every visual element should serve a purpose. A clean editor = a clear mind.
+        </div>
+
+        <h3>The Audio Vibe 🎵</h3>
+        <p>Music is literally a vibe enhancer. Here are some tried-and-true playlists:</p>
+        <ul style="margin-left: 2rem;">
+            <li><strong>Lo-fi beats:</strong> Perfect for focused work</li>
+            <li><strong>Video game soundtracks:</strong> Brain treats music as motivational</li>
+            <li><strong>Jazz:</strong> Sophisticated vibes with creativity</li>
+            <li><strong>Synthwave:</strong> Retro-futuristic energy</li>
+            <li><strong>Ambient:</strong> When you need zen mode</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>⚠️ Warning:</strong> Don't use lyric-heavy music while coding complex logic. Your brain needs focus, not narrative.
+        </div>
+    </section>
+
+    <!-- Tutorial 2: Rhythm -->
+    <section class="tutorial-section" id="rhythm">
+        <h2>🎵 Tutorial 2: Find Your Rhythm</h2>
+        <p>Not everyone codes best at 9am. Stop fighting your nature.</p>
+
+        <h3>The Chronotype Test ⏰</h3>
+        <p>Track yourself for a week. When do you naturally:</p>
+        <ul style="margin-left: 2rem;">
+            <li>Feel most alert?</li>
+            <li>Solve complex problems easiest?</li>
+            <li>Get into deep focus?</li>
+            <li>Write the cleanest code?</li>
+            <li>Feel creative and inventive?</li>
+        </ul>
+
+        <p><strong>That's your peak hours.</strong> Guard them ferociously.</p>
+
+        <div class="code-block">
+// Example Daily Vibe Schedule (Early Bird)
+08:00 - Code (PEAK FOCUS TIME - No meetings!)
+10:30 - Coffee + Context Reset
+11:00 - Code (Second wind)
+13:00 - Lunch break (step outside!)
+14:00 - Meetings/Communication
+15:30 - Code (Less intense stuff)
+17:00 - Review & Document
+        </div>
+
+        <div class="tip-box">
+            <strong>💡 Pro Tip:</strong> Communicate your peak hours to your team. Block calendar. Say "no" to meetings during flow time. Your productivity will increase 3x.
+        </div>
+
+        <h3>The Weekly Rhythm 📅</h3>
+        <p>Some days you're built for deep work. Others for collaboration.</p>
+        <ul style="margin-left: 2rem;">
+            <li><strong>Monday:</strong> Planning & architecture (fresh mind)</li>
+            <li><strong>Tuesday-Thursday:</strong> Deep coding (the power days)</li>
+            <li><strong>Friday:</strong> Reviews, refactoring, demos</li>
+        </ul>
+    </section>
+
+    <!-- Tutorial 3: Flow -->
+    <section class="tutorial-section" id="flow">
+        <h3>⚡ Tutorial 3: Enter Flow State</h3>
+        <p>Flow state is where magic happens. Here's how to get there.</p>
+
+        <h3>The Science of Flow 🧠</h3>
+        <p>Flow happens when:</p>
+        <div class="checklist">
+            <ul>
+                <li>Challenge level matches your skill level</li>
+                <li>Clear goals (what you're building today)</li>
+                <li>Immediate feedback (compiles, tests pass)</li>
+                <li>Zero interruptions (no Slack notifications!)</li>
+                <li>Deep focus (90-120 min blocks)</li>
+            </ul>
+        </div>
+
+        <h3>How to Protect Flow ⛔</h3>
+        <div class="code-block">
+// The Flow Protection Protocol:
+1. Turn off notifications (ALL of them)
+2. Close Slack/Teams/Discord
+3. Put phone in another room
+4. Close unrelated tabs
+5. Tell your team you're deep coding
+6. Set a timer for 90 minutes
+7. CODE LIKE YOUR LIFE DEPENDS ON IT
+        </div>
+
+        <div class="warning-box">
+            <strong>⚠️ Important:</strong> Breaking flow for a message costs 15+ minutes to get back in. Protect flow like it's your salary. It IS your most valuable asset.
+        </div>
+
+        <h3>Advanced: Pomodoro Vibing 🍅</h3>
+        <p>For those who need structure:</p>
+        <ul style="margin-left: 2rem;">
+            <li><strong>25 min:</strong> Deep focus (one task)</li>
+            <li><strong>5 min:</strong> Micro break (stretch, water)</li>
+            <li><strong>Repeat 4x:</strong> Then take 15-30 min break</li>
+        </ul>
+    </section>
+
+    <!-- Tutorial 4: Debug -->
+    <section class="tutorial-section" id="debug">
+        <h2>🔍 Tutorial 4: Debug with Joy</h2>
+        <p>Debugging doesn't have to be soul-crushing. Here's the vibe approach:</p>
+
+        <h3>Mindset First 🧠</h3>
+        <p>When you hit a bug, remember:</p>
+        <div class="tip-box">
+            <strong>💡 Reframe:</strong> "Bugs aren't failures. They're puzzles. And puzzles are FUN." This mindset shift changes everything.
+        </div>
+
+        <h3>The Debug Ritual 🔧</h3>
+        <div class="code-block">
+1. Take a breath (literally, pause for 10 seconds)
+2. Reproduce the bug (understand the problem)
+3. Check your assumptions (usually the issue)
+4. Add logging (console.log is your friend)
+5. Binary search the code (half it, narrow down)
+6. Sleep on it (yes, really - rest helps)
+7. Ask for help (no shame in fresh eyes)
+        </div>
+
+        <h3>Debug Music 🎵</h3>
+        <p>Different vibes need different tracks:</p>
+        <ul style="margin-left: 2rem;">
+            <li><strong>Quick bugs:</strong> Upbeat, energetic music</li>
+            <li><strong>Deep bugs:</strong> Lo-fi, ambient beats</li>
+            <li><strong>Frustration level high:</strong> Your favorite hype song</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>⚠️ Watch Out:</strong> Don't debug for more than 60 minutes. If you're stuck, step away. Your subconscious will solve it while you're doing something else.
+        </div>
+    </section>
+
+    <!-- Tutorial 5: Ship -->
+    <section class="tutorial-section" id="ship">
+        <h2>🚀 Tutorial 5: Ship with Confidence</h2>
+        <p>Shipping is 50% code, 50% confidence. Here's how to do both.</p>
+
+        <h3>Pre-Ship Checklist ✅</h3>
+        <div class="checklist">
+            <ul>
+                <li>Tests pass (all of them, not just the ones you care about)</li>
+                <li>Code reviewed (someone else's eyes matter)</li>
+                <li>Linted and formatted (consistency = quality)</li>
+                <li>Documentation updated (future you will thank you)</li>
+                <li>Environment variables set correctly</li>
+                <li>Database migrations tested</li>
+                <li>Error handling in place (for when things go wrong)</li>
+                <li>Performance checked (no sudden slowdowns)</li>
+            </ul>
+        </div>
+
+        <h3>The Ship Ritual 🎉</h3>
+        <p>Make shipping a ceremony, not an afterthought:</p>
+        <ul style="margin-left: 2rem;">
+            <li>Do a final code review (solo)</li>
+            <li>Run tests one more time</li>
+            <li>Take a screenshot/record a demo</li>
+            <li>Ship it 🚀</li>
+            <li>Celebrate (seriously, it's important!)</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>💡 Pro Tip:</strong> Ship early and often. Small, frequent deployments > big, scary releases. Each ship should feel good, not terrifying.
+        </div>
+
+        <h3>Handling Failures 😅</h3>
+        <p>Bugs will happen. That's okay. Here's the vibe approach:</p>
+        <ul style="margin-left: 2rem;">
+            <li>Don't panic (panicking helps nobody)</li>
+            <li>Rollback if needed (nothing is permanent)</li>
+            <li>Find the root cause (calmly)</li>
+            <li>Fix it (properly, not a band-aid)</li>
+            <li>Learn from it (that's the whole point)</li>
+            <li>Move on (don't carry guilt)</li>
+        </ul>
+    </section>
+
+    <!-- Tutorial 6: Teams -->
+    <section class="tutorial-section" id="team">
+        <h2>👥 Tutorial 6: Build Vibe Teams</h2>
+        <p>Vibe coding multiplies when shared. Here's how to build a high-vibe team.</p>
+
+        <h3>Core Principles for Vibe Teams 🎯</h3>
+        <div class="code-block">
+// The Vibe Team Manifesto:
+✓ Protect flow time for everyone
+✓ No heroics (sustainable pace always)
+✓ Celebrate wins (no matter how small)
+✓ Psychological safety (take risks!)
+✓ Code review as teaching, not gatekeeping
+✓ Help each other level up
+✓ No toxic behavior (EVER)
+✓ Real work-life balance (not just talk)
+        </div>
+
+        <h3>Practical Policies 📋</h3>
+        <ul style="margin-left: 2rem;">
+            <li><strong>No meetings Friday afternoons</strong> (ship time)</li>
+            <li><strong>Core focus hours</strong> (no distractions 9-12, 1-3pm)</li>
+            <li><strong>Sync up daily</strong> (15 min standup max)</li>
+            <li><strong>Code review within 24h</strong> (respecting flow)</li>
+            <li><strong>Learning budget</strong> (courses, books, conferences)</li>
+            <li><strong>Mental health days</strong> (take them, seriously)</li>
+        </ul>
+
+        <h3>Building Culture 🧡</h3>
+        <p>Culture is built through:</p>
+        <ul style="margin-left: 2rem;">
+            <li>Celebrating deployed features</li>
+            <li>Learning from failures together</li>
+            <li>Helping juniors grow</li>
+            <li>Mentoring and pairing</li>
+            <li>Fun team events (game jams, hackathons)</li>
+            <li>Real feedback (honest, supportive)</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>💡 Pro Tip:</strong> The best vibe team is one where people actually WANT to come to work. If your team dreads Mondays, something's wrong.
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Transform Your Code Life?</h2>
+        <p>Start with the tutorials above. Pick one, implement it, and feel the difference.</p>
+        <a href="philosophy.html" class="cta-button large">Learn Our Philosophy</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>✨ Made with vibes and chaos ✨ | Inspired by <a href="https://hackclub.com">Hack Club</a></p>
+        <p class="footer-note">Vibe Coding: Because great code comes from happy humans.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.querySelector(sectionId);
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

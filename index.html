@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBE CODING 🚀 - Code with Soul</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">✨ VIBE CODE ✨</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="philosophy.html">Philosophy</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                🎨 VIBE CODING 🎨<br>
+                <span class="subtitle">Code Like You Mean It</span>
+            </h1>
+            <p class="hero-description">
+                Where creativity meets chaos, and bugs fear to tread.
+            </p>
+            <button class="cta-button" onclick="showPopup('welcome')">
+                Let's Get Vibing 🌊
+            </button>
+        </div>
+        <img src="assets/images/vibe-rocket.svg" class="hero-art image-enter" alt="Playful vibe coding rocket illustration">
+    </section>
+
+    <!-- Quick Features Section -->
+    <section class="features" id="features">
+        <h2>Why Vibe Code?</h2>
+        <div class="feature-grid">
+            <div class="feature-card" onclick="showPopup('efficiency')">
+                <div class="feature-icon">⚡</div>
+                <h3>Max Efficiency</h3>
+                <p>Code faster, sleep better. Your rhythm, your rules.</p>
+            </div>
+            <div class="feature-card" onclick="showPopup('quality')">
+                <div class="feature-icon">✨</div>
+                <h3>Quality Vibes</h3>
+                <p>Happy code = happy life. Write software you love.</p>
+            </div>
+            <div class="feature-card" onclick="showPopup('fun')">
+                <div class="feature-icon">🎉</div>
+                <h3>Actually Fun</h3>
+                <p>Programming doesn't have to be a drag. Vibe it out!</p>
+            </div>
+            <div class="feature-card" onclick="showPopup('community')">
+                <div class="feature-icon">👥</div>
+                <h3>Community Driven</h3>
+                <p>Join thousands of devs vibing together. You're not alone.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Vibe Check Section -->
+    <section class="vibe-check">
+        <h2>🎯 The Vibe Check</h2>
+        <div class="vibe-content">
+            <div class="vibe-text">
+                <p>"Vibe Coding" isn't just about writing code—it's about <strong>engineering your life</strong> around the code you write.</p>
+                <ul class="vibe-list">
+                    <li>🎵 Find your rhythm</li>
+                    <li>💡 Think creatively</li>
+                    <li>🔥 Ship with confidence</li>
+                    <li>🎨 Make it beautiful</li>
+                    <li>🚀 Move fast AND break things (responsibly)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <h2>Ready to Transform Your Code Life?</h2>
+        <p>Learn the secrets of vibe coding and become unstoppable.</p>
+        <a href="tutorials.html" class="cta-button large">Explore Tutorials</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>✨ Made with vibes and chaos ✨ | Inspired by <a href="https://hackclub.com">Hack Club</a></p>
+        <p class="footer-note">Vibe Coding: Because life's too short for boring code.</p>
+    </footer>
+
+    <!-- Popups -->
+    <div id="welcomePopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('welcome')">&times;</span>
+            <h2>🌊 Welcome to the Vibe!</h2>
+            <p>You're about to enter a world where coding is less "grind" and more "flow".</p>
+            <p>Whether you're:</p>
+            <ul>
+                <li>A stressed junior dev looking for peace 😰</li>
+                <li>A senior dev tired of soul-crushing meetings 🪦</li>
+                <li>A startup founder trying to ship fast 🚀</li>
+                <li>Or just someone who loves code 💚</li>
+            </ul>
+            <p><strong>Vibe Coding has something for you.</strong></p>
+            <button class="popup-button" onclick="closePopup('welcome'); smoothScroll('features')">
+                Show Me More ↓
+            </button>
+        </div>
+    </div>
+
+    <div id="efficiencyPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('efficiency')">&times;</span>
+            <h2>⚡ Maximum Efficiency</h2>
+            <p><strong>Work smarter, not harder.</strong></p>
+            <p>Vibe coding teaches you to:</p>
+            <ul>
+                <li>✂️ Cut the cruft from your workflow</li>
+                <li>🎯 Focus on what actually matters</li>
+                <li>🧠 Let your brain do the thinking</li>
+                <li>⏱️ Get more done in less time</li>
+            </ul>
+            <p>No more 12-hour debugging sessions. Pure flow state.</p>
+        </div>
+    </div>
+
+    <div id="qualityPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('quality')">&times;</span>
+            <h2>✨ Quality That Shines</h2>
+            <p><strong>Your code should make you proud.</strong></p>
+            <p>When you're vibing:</p>
+            <ul>
+                <li>🎨 Code looks beautiful</li>
+                <li>🐛 Bugs are easier to spot</li>
+                <li>📚 Documentation flows naturally</li>
+                <li>🔒 Security becomes second nature</li>
+            </ul>
+            <p>Quality isn't an afterthought—it's the rhythm.</p>
+        </div>
+    </div>
+
+    <div id="funPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('fun')">&times;</span>
+            <h2>🎉 The Fun Factor</h2>
+            <p><strong>Remember why you loved coding?</strong></p>
+            <p>Vibe coding brings back the joy:</p>
+            <ul>
+                <li>🎮 Coding becomes a game again</li>
+                <li>👯 Celebrate wins (no matter how small)</li>
+                <li>🎵 Find your development rhythm</li>
+                <li>😄 Actually laugh at your own jokes</li>
+            </ul>
+            <p>Life's too short for unhappy code.</p>
+        </div>
+    </div>
+
+    <div id="communityPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('community')">&times;</span>
+            <h2>👥 Our Community</h2>
+            <p><strong>You're not alone in this journey.</strong></p>
+            <p>Join developers who:</p>
+            <ul>
+                <li>💬 Share their vibes and wins</li>
+                <li>🤝 Help each other level up</li>
+                <li>🌍 Build across timezones</li>
+                <li>❤️ Actually care about the craft</li>
+            </ul>
+            <p>Come vibe with us!</p>
+        </div>
+    </div>
+
+    <!-- Overlay for popups -->
+    <div id="popupOverlay" class="popup-overlay" onclick="closeAllPopups()"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

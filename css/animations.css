@@ -1,0 +1,291 @@
+/* ============================================
+   VIBE CODING - Smooth Scrolling & Animations
+   ============================================ */
+
+/* Smooth scrolling for the entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Smooth transitions for all elements */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Scroll animation - fade in effect */
+.fade-in {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll trigger animations */
+.feature-card {
+    animation: scaleInUp 0.6s ease forwards;
+}
+
+@keyframes scaleInUp {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Entrance animation for images */
+.image-enter {
+    animation: rotateIn 0.8s ease forwards;
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-10deg) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+/* Hover lift effect */
+.hover-lift:hover {
+    animation: liftUp 0.3s ease forwards;
+}
+
+@keyframes liftUp {
+    to {
+        transform: translateY(-5px);
+    }
+}
+
+/* Wiggle animation for fun */
+.wiggle {
+    animation: wiggle 0.5s ease-in-out;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+/* Shine effect */
+.shine {
+    animation: shine 2s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Gradient animation */
+.gradient-shift {
+    animation: gradientShift 3s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Confetti animation */
+.confetti {
+    animation: confettiFall 2s ease-out forwards;
+    position: fixed;
+    pointer-events: none;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Wave animation for text */
+.wave {
+    animation: wave 1s ease-in-out infinite;
+    display: inline-block;
+}
+
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Pulse animation */
+.pulse-anim {
+    animation: pulseEffect 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseEffect {
+    0%, 100% { 
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+    }
+    50% { 
+        box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+    }
+}
+
+/* Smooth page transitions */
+.page-transition {
+    animation: pageTransition 0.5s ease;
+}
+
+@keyframes pageTransition {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Scroll to top button animation */
+.scroll-to-top {
+    animation: slideUpIn 0.3s ease forwards;
+}
+
+@keyframes slideUpIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bounce animation for notifications */
+.bounce-in {
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Rainbow text animation */
+.rainbow {
+    background: linear-gradient(90deg, #ec3750, #ffd166, #17171d, #338eda, #ff8c37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbowShift 3s linear infinite;
+    background-size: 200% 100%;
+}
+
+@keyframes rainbowShift {
+    0% { background-position: 0% center; }
+    100% { background-position: -200% center; }
+}
+
+/* Glow effect */
+.glow {
+    animation: glowEffect 2s ease-in-out infinite;
+}
+
+@keyframes glowEffect {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+    }
+}
+
+/* Flip animation */
+.flip {
+    animation: flip 0.6s ease-in-out;
+}
+
+@keyframes flip {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+/* Slide animations */
+.slide-left {
+    animation: slideLeft 0.5s ease forwards;
+}
+
+.slide-right {
+    animation: slideRight 0.5s ease forwards;
+}
+
+@keyframes slideLeft {
+    from { 
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scroll reveal effect */
+@keyframes scrollReveal {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Text animation */
+.text-reveal {
+    animation: textReveal 0.6s ease;
+}
+
+@keyframes textReveal {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
