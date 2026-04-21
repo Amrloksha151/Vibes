@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whoa! Whoa!</title>
+</head>
+<body>
+    <nav style="padding: 1rem; text-align: center;">
+        <a href="../" style="margin: 0 0.5rem;">Home</a>
+        <a href="../about/" style="margin: 0 0.5rem;">About</a>
+        <a href="../tutorials/" style="margin: 0 0.5rem;">Tutorials</a>
+        <a href="../philosophy/" style="margin: 0 0.5rem;">Philosophy</a>
+        <a href="../gift/" style="margin: 0 0.5rem;">Gift</a>
+    </nav>
+    <button style="text-align: center;" onclick="makeParty()">Click Me!!</button>
+    <script>
+        let partyStarted = false;
+        let audioContext;
+        let beatIndex = 0;
+
+        function randomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        function playNote(frequency, durationSeconds) {
+            const osc = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(frequency, audioContext.currentTime);
+
+            gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.15, audioContext.currentTime + 0.01);
+            gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + durationSeconds);
+
+            osc.connect(gain);
+            gain.connect(audioContext.destination);
+
+            osc.start();
+            osc.stop(audioContext.currentTime + durationSeconds + 0.02);
+        }
+
+        function startPartyMusic() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+
+            // 8-note loop in A minor for an endless party feel.
+            const loop = [220.00, 261.63, 329.63, 392.00, 329.63, 293.66, 261.63, 246.94];
+            const beatMs = 250;
+
+            playNote(loop[beatIndex % loop.length], 0.22);
+            beatIndex++;
+
+            setInterval(() => {
+                playNote(loop[beatIndex % loop.length], 0.22);
+                beatIndex++;
+            }, beatMs);
+        }
+
+        function makeParty() {
+            if (partyStarted) return;
+            partyStarted = true;
+            startPartyMusic();
+
+            function changeBackground() {
+                document.body.style.backgroundColor = randomColor();
+                const delay = Math.random() * 900 + 100; // 0.1s to 1s
+                setTimeout(changeBackground, delay);
+            }
+
+            changeBackground();
+        }
+    </script>
+</body>
+</html>
